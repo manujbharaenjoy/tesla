@@ -1,218 +1,346 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Responsive Navigation Bar &amp; Dropdown with Flexbox (updated, no jQuery)</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
-  <style>
-    /* Basic styling */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-body {
-  font-family: sans-serif;
-  font-size: 16px;
-}
-nav {
-  background: #222;
-  padding: 0 15px;
-}
-a {
-  color: white;
-  text-decoration: none;
-}
-.menu,
-.submenu {
-  list-style-type: none;
-}
-.logo {
-  font-size: 20px;
-  padding: 7.5px 10px 7.5px 0;
-}
-.item {
-  padding: 10px;
-}
-.item.button {
-  padding: 9px 5px;
-}
-.item:not(.button) a:hover,
-.item a:hover::after {
-  color: #ccc;
-}
-/* Mobile menu */
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-.menu li a {
-  display: block;
-  padding: 15px 5px;
-}
-.menu li.subitem a {
-  padding: 15px;
-}
-.toggle {
-  order: 1;
-  font-size: 20px;
-}
-.item.button {
-  order: 2;
-}
-.item {
-  order: 3;
-  width: 100%;
-  text-align: center;
-  display: none;
-}
-.active .item {
-  display: block;
-}
-.button.secondary {
-  /* divider between buttons and menu links */
-  border-bottom: 1px #444 solid;
-}
-/* Submenu up from mobile screens */
-.submenu {
-  display: none;
-}
-.submenu-active .submenu {
-  display: block;
-}
-.has-submenu i {
-  font-size: 12px;
-}
-.has-submenu > a::after {
-  font-family: "Font Awesome 5 Free";
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 900;
-  content: "\f078";
-  color: white;
-  padding-left: 5px;
-}
-.subitem a {
-  padding: 10px 15px;
-}
-.submenu-active {
-  background-color: #111;
-  border-radius: 3px;
-}
-
-/* Tablet menu */
-@media all and (min-width: 700px) {
-  .menu {
-    justify-content: center;
-  }
-  .logo {
-    flex: 1;
-  }
-  .item.button {
-    width: auto;
-    order: 1;
-    display: block;
-  }
-  .toggle {
-    flex: 1;
-    text-align: right;
-    order: 2;
-  }
-  /* Button up from tablet screen */
-  .menu li.button a {
-    padding: 10px 15px;
-    margin: 5px 0;
-  }
-  .button a {
-    background: #0080ff;
-    border: 1px royalblue solid;
-  }
-  .button.secondary {
-    border: 0;
-  }
-  .button.secondary a {
-    background: transparent;
-    border: 1px #0080ff solid;
-  }
-  .button a:hover {
-    text-decoration: none;
-  }
-  .button:not(.secondary) a:hover {
-    background: royalblue;
-    border-color: darkblue;
-  }
-}
-/* Desktop menu */
-@media all and (min-width: 960px) {
-  .menu {
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    background: none;
-  }
-  .logo {
-    order: 0;
-  }
-  .item {
-    order: 1;
-    position: relative;
-    display: block;
-    width: auto;
-  }
-  .button {
-    order: 2;
-  }
-  .submenu-active .submenu {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 68px;
-    background: #111;
-  }
-  .toggle {
-    display: none;
-  }
-  .submenu-active {
-    border-radius: 0;
-  }
-}
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<nav>
-  <ul class="menu">
-    <li class="logo"><a href="#">Creative Mind Agency</a></li>
-    <li class="item"><a href="#">Home</a></li>
-    <li class="item"><a href="#">About</a></li>
-    <li class="item has-submenu">
-      <a tabindex="0">Services</a>
-      <ul class="submenu">
-        <li class="subitem"><a href="#">Design</a></li>
-        <li class="subitem"><a href="#">Development</a></li>
-        <li class="subitem"><a href="#">SEO</a></li>
-        <li class="subitem"><a href="#">Copywriting</a></li>
-      </ul>
-    </li>
-    <li class="item has-submenu">
-      <a tabindex="0">Plans</a>
-      <ul class="submenu">
-        <li class="subitem"><a href="#">Freelancer</a></li>
-        <li class="subitem"><a href="#">Startup</a></li>
-        <li class="subitem"><a href="#">Enterprise</a></li>
-      </ul>
-    </li>
-    <li class="item"><a href="#">Blog</a></li>
-    <li class="item"><a href="#">Contact</a>
-    </li>
-    <li class="item button"><a href="#">Log In</a></li>
-    <li class="item button secondary"><a href="#">Sign Up</a></li>
-    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-  </ul>
-</nav>
-<!-- partial -->
-  <script  src="./script.js"></script>
+	<div class="page-wrapper">
+		<header>
+		<nav class="navbar">
+			<div class="logo-link">
+				<a href="#">
+					<img src="images/images 1.png"/>
+				    <h1>Malthe<br>Andersen</h1>
+				</a>
+			</div>
+			<ul class="link">
+				<li><a href="#">Header</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Resume</a></li>
+				<li><a href="#">Process</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Portfolio</a></li>
+			</ul>
+			<button class="button-link">Write Quotation</button>
+		</nav>
+	    </header>
+		<div class="container">
+			<div class="box-one">
+				<div class="text-one">
+					<div class="one-text">
+						<hr>
+						<h5>Hello welcome to my portfolio</h5>
+					</div>
+					<h1>Malthe Andersen</h1>
+					<p><span>Architecture Designer</span> Based on Denmark. As architecture i have few years of experience, Also about 3 years i work for company called zakirsoft. </p>
+					<div class="button-two">Hire Me - Available for Work</div>
+				</div>
+				<div class="picture-one">
+					<img src="images/Ellipse_17-removebg-preview.png" />
+				</div>
+			</div>
+			<div class="box-two">
+				<div class="text-two">
+					<h3>Connect with me:</h3>
+					<div class="two-text">
+						<img src="images/Group 1.png"/>
+						<img src="images/Vector (2).png"/>
+						<img src="images/vvv-3.png"/>
+						<img src="images/vvv-4.png"/>
+						<img src="images/vvv-5.png"/>
+						<img src="images/Social Media.png"/>
+						<img src="images/vvv-6.png"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-two">
+			<img class="img-one" src="images/Rectangle 26.png" />
+			<div class="text-three">
+				<h3>I’m Architecture Designer, I work with lot’s of big companies like Cobe, Effeckt, Spacon and many more.</h3>
+				<p>Mauris ornare ac ligula et dapibus. Praesent purus quam, rhoncus non tellus ut, semper accumsan metus. Praesent eu mattis ex, in cursus lectus. Aliquam ultricies leo facilisis tellus aliquet ultrices. Nullam elementum ac odio semper consectetur.</p>
+				<div class="button-three"><img src="images/Download.png">Download resume</div>
+			</div>
+		</div>
+		<div class="container-three">
+			<div class="text-fourth">
+				<h1>Clients Testimonials</h1>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+			</div>
+			<div class="box-fourth">
+				<div class="fourth-text">
+				<div class="img-vvv">
+					<img class="img-fourth" src="images/Group 14.png" />
+				</div>
+				<p>Now that we've switched to a remote environment, with the use of Trello, we can now limit the number of meetings we have regarding specific projects and turn to Trello for updates instead.</p>
+			</div>
+			<div class="fourth-profile">
+				<div class="profile-fourth">
+					<img src="images/Ellipse 20.png"/>
+					<h3 style="color: #121314;">Kevin Gilberts</h3>
+				</div>
+				<div class="profile-fourth">
+					<img src="images/Ellipse 20.png"/>
+					<h3>Kevin Gilberts</h3>
+				</div>
+				<div class="profile-fourth">
+					<img src="images/Ellipse 20.png"/>
+					<h3>Kevin Gilberts</h3>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container-four">
+			<div class="box-five">
+				<div class="text-six">
+					<div class="picture-degree">
+						<img src="images/University.png" />
+						<h3>EDUcations</h3>
+					</div>
+					<h5>2008 - 2012</h5>
+					<h1>Bachelor’s of Architecture Design</h1>
+					<p>Nam et nunc nec purus consequat pharetra. Aliquam nec libero vitae diam tempor rutrum. </p>
+					<h5>2006 - 2008</h5>
+					<h1>Higher School Examination Certificate</h1>
+					<p>Aenean arcu elit, rhoncus ut euismod at, porttitor at enim. In imperdiet quis nibh non commodo.  </p>
+				</div>
+				<div class="text-six">
+					<div class="picture-degree">
+						<img src="images/bag.png" />
+						<h3>Experience</h3>
+					</div>
+					<h5>2008 - 2012</h5>
+					<h1>Senior Architecture Designer at Cobe</h1>
+					<p>Nam et nunc nec purus consequat pharetra. Aliquam nec libero vitae diam tempor rutrum.  </p>
+					<h5>5 Years</h5>
+					<h1>Freelancing as Architecture Designer</h1>
+					<p>Aenean arcu elit, rhoncus ut euismod at, porttitor at enim. In imperdiet quis nibh non commodo.   </p>
+				</div>
+			</div>
+		</div>
+		<div class="container-seven">
+			<div class="box-seven">
+				<div class="text-seven">
+					<div class="seven-text">
+						<img src="images/fff.png" />
+						<h3>Skills</h3>
+					</div>
+					<h1>Communicatoins</h1>
+					<img src="images/Rectangle 28.png" />
+					<h1>Commercial Awareness</h1>
+					<img src="images/Rectangle 28 (1).png" />
+					<h1>Visualizing</h1>
+					<img src="images/Rectangle 28 (3).png" />
+					<h1>Computer literacy</h1>
+					<img src="images/Rectangle 28 (2).png" />
+					<h1>Construction Knowledge</h1>
+					<img src="images/Rectangle 28 (3).png" />
+				</div>
+				<div class="text-seven">
+					<div class="seven-text">
+						<img src="images/thump.png" />
+					    <h3>Interest</h3>
+					</div>
+					<div class="box-header">
+						<div class="header-box">
+							<div class="card-header-box">
+								<div class="card">
+									<div class="card-header">
+										<img src="images/Globe.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Travel</h1>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<img src="images/mmm.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Writing</h1>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<img src="images/book.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Reading</h1>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<img src="images/camera.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Photography</h1>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<img src="images/light.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Volunteering</h1>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<img src="images/love.png" class="photo-pic" />
+									</div>
+									<div class="card-body">
+										<h1>Yoga</h1>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-eight">
+			<div class="box-eight">
+				<div class="text-eight">
+					<div class="eight-text">
+						<img src="images/computer.png"/>
+						<h3>Project Statistic</h3>
+					</div>
+					<div class="content-eight" style=" border-bottom: 1px solid #DFE3E5;">
+						<li><h1>Project Statistic</h1></li>
+						<h3>37 Projects</h3>
+					</div>
+					<div class="content-eight" style=" border-bottom: 1px solid #DFE3E5;">
+						<li><h1>Gothic Architecture</h1></li>
+						<h3>24 Projects</h3>
+					</div>
+					<div class="content-eight" style=" border-bottom: 1px solid #DFE3E5;">
+						<li><h1>Victorian Architecture</h1></li>
+						<h3>19 projects</h3>
+					</div>
+					<div class="content-eight" style=" border-bottom: 1px solid #DFE3E5;">
+						<li><h1>Modern Architecture</h1></li>
+						<h3>13 projects</h3>
+					</div>
+					<div class="content-eight" style=" border-bottom: 1px solid #DFE3E5;">
+						<li><h1>Byzantine Architecture</h1></li>
+						<h3>7 Projcet</h3>
+					</div>
+					<div class="content-eight">
+						<li><h1>Contemporary Architecture</h1></li>
+						<h3>2 Projects</h3>
+					</div>
+				</div>
+				<div class="text-eight">
+					<div class="eight-text">
+						<img src="images/fofo.png"/>
+						<h3>My Work Phase</h3>
+					</div>
+					<div class="content-header">
+						<div class="header-content">
+							<div class="card-header-vvv">
+								<div class="carding">
+									<div class="header-carding">
+										<h5>1</h5>
+										<h3>Schematic Design</h3>
+									</div>
+								</div>
+								<div class="carding">
+									<div class="header-carding">
+										<h5>1</h5>
+										<h3>Schematic Design</h3>
+									</div>
+								</div>
+								<div class="carding">
+									<div class="header-carding">
+										<h5>1</h5>
+										<h3>Schematic Design</h3>
+									</div>
+								</div>
+								<div class="carding">
+									<div class="header-carding">
+										<h5>1</h5>
+										<h3>Schematic Design</h3>
+									</div>
+								</div>
+								<div class="carding">
+									<div class="header-carding">
+										<h5>1</h5>
+										<h3>Schematic Design</h3>
+									</div>
+								</div>
 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main class="container-nine">
+			<div class="text-nine">
+				<h1>My Projects</h1>
+				<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis mattis neque varius.</p>
+			</div>
+			<div class="header-nine">
+				<div class="nine-header">
+					<div class="card-header-nine">
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/4d252ea71642eaedda99bdf1cf27d83ba37b0a1c.jpg" />
+							</div>
+						</div>
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/01c00bfd6ecff448e837c17077d5a8b3790c1b39.jpg" />
+							</div>
+						</div>
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/eab06a64122cddd28477a30f3ee6279b8b6fc346.jpg" />
+							</div>
+						</div>
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/5dce48e9847aa7611c4f6b1a7de21816874c4029.jpg" />
+							</div>
+						</div>
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/9400eb780a25dc0c36292c401b6966d809312484.jpg" />
+							</div>
+						</div>
+						<div class="card-nine">
+							<div class="header-img">
+								<img src="images/b630183326c75771f8efb7c043a3c105ee1899eb.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<div class="container-ten">
+			<div class="text-ten">
+				<h1>I’m available for Freelance work, Let’s work together!</h1>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae Etiam malesuada.</p>
+				<div class="button-ten">
+					Request a Quotes
+					<img src="images/ArrowRight.png" />
+				</div>
+			</div>
+		</div>
+		<div class="container-great">
+			<div class="logo-link">
+				<a href="#">
+					<img src="images/images 1.png"/>
+				    <h1>Malthe<br>Andersen</h1>
+				</a>
+			</div>
+			<div class="text-great">
+					<p>All content © 2006-Current Howard Stark and respective copyright holders.</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
